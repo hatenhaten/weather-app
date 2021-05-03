@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 // component
 
 // prettier-ignore
-const ForecastSummary = (props) => {
-  const { date, description, icon, temperature } = props;
+const ForecastSummary = ({ forecast }) => {
+  const { date, description, icon, temperature } = forecast;
 
   return ( 
     <div className="forecast-summary" data-testid="forecast-summary">
@@ -22,12 +22,14 @@ const ForecastSummary = (props) => {
 // prop validation
 
 ForecastSummary.propTypes = {
-  date: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
-  temperature: PropTypes.shape({
-    min: PropTypes.number,
-    max: PropTypes.number,
+  forecast: PropTypes.shape({
+    date: PropTypes.number,
+    description: PropTypes.string,
+    icon: PropTypes.string,
+    temperature: PropTypes.shape({
+      max: PropTypes.number,
+      min: PropTypes.number,
+    }),
   }).isRequired,
 };
 

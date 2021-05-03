@@ -8,22 +8,25 @@ import ForecastSummary from "../../components/ForecastSummary";
 
 describe("ForecastSummary", () => {
   const validProps = {
-    date: 1111111,
-    description: "Stub description",
-    icon: "stubIcon",
-    temperature: {
-      min: 12,
-      max: 22,
+    forecast: {
+      date: 1111111,
+      description: "Stub description",
+      icon: "stubIcon",
+      temperature: {
+        min: 12,
+        max: 22,
+      },
     },
   };
 
   it("renders correctly", () => {
     const { asFragment } = render(
       <ForecastSummary
-        date={validProps.date}
-        description={validProps.description}
-        icon={validProps.icon}
-        temperature={validProps.temperature}
+        forecast={validProps.forecast}
+        date={validProps.forecast.date}
+        description={validProps.forecast.description}
+        icon={validProps.forecast.icon}
+        temperature={validProps.forecast.temperature}
       />
     );
 
@@ -35,10 +38,11 @@ describe("ForecastSummary", () => {
   it("renders correct values for props", () => {
     const { getByText, getByTestId } = render(
       <ForecastSummary
-        date={validProps.date}
-        description={validProps.description}
-        icon={validProps.icon}
-        temperature={validProps.temperature}
+        forecast={validProps.forecast}
+        date={validProps.forecast.date}
+        description={validProps.forecast.description}
+        icon={validProps.forecast.icon}
+        temperature={validProps.forecast.temperature}
       />
     );
 

@@ -1,6 +1,10 @@
+// imports
+
 import React from "react";
 import { render } from "@testing-library/react";
 import LocationDetails from "../../components/LocationDetails";
+
+// snapshot tests
 
 describe("LocationDetails", () => {
   it("renders the correct city and location props", () => {
