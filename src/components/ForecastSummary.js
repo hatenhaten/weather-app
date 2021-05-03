@@ -1,34 +1,25 @@
+// imports
+
 import React from "react";
 import PropTypes from "prop-types";
 
+// component
+
 // prettier-ignore
 const ForecastSummary = (props) => {
-  const { 
-    date,
-    description,
-    icon,
-    temperature
-  } = props;
-  
+  const { date, description, icon, temperature } = props;
 
   return ( 
-    <div className="forecast-summary">
-      <div className="forecast-summary__date">
-        {date}
-      </div>
-      <div className="forecas-summary__icon">
-        {icon}
-      </div>
-      <div className="forecast-summary__temperature">
-        {temperature.max}
-        &deg;C
-      </div>
-      <div className="forecast-summary__description">
-        {description}
-      </div>
+    <div className="forecast-summary" data-testid="forecast-summary">
+      <div className="forecast-summary__date">{date}</div>
+      <div className="forecast-summary__icon" data-testid="forecast-icon">{icon}</div>
+      <div className="forecast-summary__temperature">{temperature.max}&deg;C</div>
+      <div className="forecast-summary__description">{description}</div>
     </div>
   );
 };
+
+// prop validation
 
 ForecastSummary.propTypes = {
   date: PropTypes.number.isRequired,
@@ -39,5 +30,7 @@ ForecastSummary.propTypes = {
     max: PropTypes.number,
   }).isRequired,
 };
+
+// export
 
 export default ForecastSummary;
