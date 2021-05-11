@@ -16,20 +16,30 @@ describe("App", () => {
       {
         date: 1111111,
         description: "Stub description 1",
-        icon: "stubIcon1",
+        icon: "800",
         temperature: {
           max: 22,
           min: 12,
         },
+        wind: {
+          speed: 13,
+          direction: "s",
+        },
+        humidity: 30,
       },
       {
         date: 2222222,
         description: "Stub description2",
-        icon: "stubIcon2",
+        icon: "800",
         temperature: {
           max: 24,
           min: 13,
         },
+        wind: {
+          speed: 16,
+          direction: "nw",
+        },
+        humidity: 50,
       },
     ],
   };

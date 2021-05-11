@@ -9,24 +9,22 @@ import ForecastSummary from "../../components/ForecastSummary";
 describe("ForecastSummary", () => {
   const validProps = {
     forecast: {
-      date: 1111111,
+      date: 1525046400000,
       description: "Stub description",
-      icon: "stubIcon",
+      icon: "800",
       temperature: {
         min: 12,
         max: 22,
       },
     },
+    onSelect: jest.fn(),
   };
 
   it("renders correctly", () => {
     const { asFragment } = render(
       <ForecastSummary
         forecast={validProps.forecast}
-        date={validProps.forecast.date}
-        description={validProps.forecast.description}
-        icon={validProps.forecast.icon}
-        temperature={validProps.forecast.temperature}
+        onSelect={validProps.onSelect}
       />
     );
 
@@ -39,14 +37,11 @@ describe("ForecastSummary", () => {
     const { getByText, getByTestId } = render(
       <ForecastSummary
         forecast={validProps.forecast}
-        date={validProps.forecast.date}
-        description={validProps.forecast.description}
-        icon={validProps.forecast.icon}
-        temperature={validProps.forecast.temperature}
+        onSelect={validProps.onSelect}
       />
     );
 
-    expect(getByText("1111111")).toHaveClass("forecast-summary__date");
+    expect(getByText("Mon 30th Apr")).toHaveClass("forecast-summary__date");
     expect(getByText("Stub description")).toHaveClass(
       "forecast-summary__description"
     );

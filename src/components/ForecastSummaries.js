@@ -3,21 +3,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ForecastSummary from "./ForecastSummary";
+import "../styles/ForecastSummaries.css";
 
 // prettier-ignore
-const ForecastSummaries = ({ forecasts }) => {
+const ForecastSummaries = ({ forecasts, onForecastSelect }) => {
     return (
         <div className="forecast-summaries">
             {forecasts.map((forecast) => (
-                    <ForecastSummary
-                    key={forecast.date.toString()}
-                    date={forecast.date}
-                    description={forecast.description}
-                    icon={forecast.icon}
-                    temperature={forecast.temperature}
-                    forecast={forecast}
+                <ForecastSummary
+                  key={forecast.date.toString()}
+                  forecast={forecast}
+                  onSelect={onForecastSelect}
                 />
-            ))}
+            ))};
         </div>
     );
 };
@@ -34,6 +32,7 @@ ForecastSummaries.propTypes = {
       }),
     })
   ).isRequired,
+  onForecastSelect: PropTypes.func.isRequired,
 };
 
 export default ForecastSummaries;
